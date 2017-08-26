@@ -13,19 +13,114 @@
     </head>
     <body class="container-fluid">
       <h1>CRUD</h1>
-
+      <!-- sign up -->
       <button id="signUpButton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUpModal">
       Sign up
       </button>
+      <!-- sign in -->
       <button id="signInButton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signInModal">
       Sign in
       </button>
+      <!-- change password -->
       <button id="changePasswordButton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#changePasswordModal">
       Change password
       </button>
+      <!-- sign out -->
       <button id="logOutButton">Sign out</button>
+      <!-- update account -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#financeModal">
+        Add general finance info
+      </button>
+      <!-- new loan-->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loanModal">
+        Add a loan
+      </button>
 
 <!-- Modals -->
+<!-- API Modals -->
+<div class="modal fade" id="financeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form id="fianceForm">
+              <div class="form-group">
+                <label for="first_name">First_Name</label>
+                <input name="credentials[first_name]" type="first_name" class="form-control signUpFormElement" id="first_nameInput" placeholder="first name">
+              </div>
+              <div class="form-group">
+                <label for="income">Income</label>
+                <input name="credentials[income]" type="income" class="form-control signUpFormElement" id="incomeInput" placeholder="income">
+              </div>
+              <div class="form-group">
+                <label for="rent">Rent</label>
+                <input name="credentials[rent]" type="rent" class="form-control" id="rentInput" placeholder="rent">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="loanModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form id="loanForm">
+              <div class="form-group">
+                <label for="loanNameInput">Loan name</label>
+                <input name="credentials[name]" class="form-control signUpFormElement" id="loanNameInput" placeholder="Loan name">
+              </div>
+              <div class="form-group">
+                <label for="lenderInput">Name of lender</label>
+                <input name="credentials[lender]" class="form-control signUpFormElement" id="lenderInput" placeholder="Name of lender">
+              </div>
+              <div class="form-group">
+                <label for="principalInput">Principal Amount</label>
+                <input name="credentials[principal]" class="form-control signUpFormElement" id="principalInput" placeholder="Principal Amount">
+              </div>
+              <div class="form-group">
+                <label for="interestInput">Interest Rate</label>
+                <input name="credentials[interest_rate]" class="form-control signUpFormElement" id="interestInput" placeholder="Interest Rate">
+              </div>
+              <div class="form-group">
+                <label for="lengthInput">Length of loan</label>
+                <input name="credentials[loan_length]" class="form-control signUpFormElement" id="lengthInput" placeholder="Length of loan">
+              </div>
+              <div class="form-group">
+                <label for="dateInput">Start Date</label>
+                <input name="credentials[start_date]" class="form-control signUpFormElement" id="dateInput" placeholder="Start Date">
+              </div>
+              <div class="form-group">
+                <label for="minimumInput">Minimum Payment</label>
+                <input name="credentials[minimum_monthly_payment]" class="form-control signUpFormElement" id="minimumInput" placeholder="Minimum Payment">
+              </div>
+              <div class="form-group">
+                <label for="currentPayment">Current Payment</label>
+                <input name="credentials[current_monthly_payment]" class="form-control signUpFormElement" id="currentPayment" placeholder="Current Payment">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Auth modals -->
 <!-- Sign up -->
 <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
