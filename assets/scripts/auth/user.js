@@ -40,6 +40,16 @@ const logOut = function () {
     }
   })
 }
+const updateUser = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/change-password/' + data.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
 
 const onSignUp = function (event) {
   event.preventDefault()
@@ -96,10 +106,20 @@ const onLogOut = function (event) {
     .then(ui.onLogOutSuccess)
     .catch(ui.failure)
 }
+const onUpdateUser = function () {
+  event.preventDefault()
+  const data = getFormFields(this)
+  updateUser(data)
+    .then(function (data) {
+      console.log('on UpdateUser worked')
+    })
+}
 
 module.exports = {
   onSignUp,
   onLogIn,
   onChangePassword,
-  onLogOut
+  onLogOut,
+  updateUser,
+  onUpdateUser
 }

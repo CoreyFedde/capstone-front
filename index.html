@@ -80,35 +80,35 @@
         <form id="loanForm">
               <div class="form-group">
                 <label for="loanNameInput">Loan name</label>
-                <input name="credentials[name]" class="form-control signUpFormElement" id="loanNameInput" placeholder="Loan name">
+                <input name="loans[name]" type="text" class="form-control signUpFormElement" id="loanNameInput" placeholder="Loan name">
               </div>
               <div class="form-group">
                 <label for="lenderInput">Name of lender</label>
-                <input name="credentials[lender]" class="form-control signUpFormElement" id="lenderInput" placeholder="Name of lender">
+                <input name="loans[lender]" type="text" class="form-control signUpFormElement" id="lenderInput" placeholder="Name of lender">
               </div>
               <div class="form-group">
                 <label for="principalInput">Principal Amount</label>
-                <input name="credentials[principal]" class="form-control signUpFormElement" id="principalInput" placeholder="Principal Amount">
+                <input name="loans[principal]" type="integer" accept=""class="form-control signUpFormElement" id="principalInput" placeholder="Principal Amount">
               </div>
               <div class="form-group">
                 <label for="interestInput">Interest Rate</label>
-                <input name="credentials[interest_rate]" class="form-control signUpFormElement" id="interestInput" placeholder="Interest Rate">
+                <input name="loans[interest_rate]" type="integer" class="form-control signUpFormElement" id="interestInput" placeholder="Interest Rate">
               </div>
               <div class="form-group">
                 <label for="lengthInput">Length of loan</label>
-                <input name="credentials[loan_length]" class="form-control signUpFormElement" id="lengthInput" placeholder="Length of loan">
+                <input name="loans[loan_length]" type="integer" class="form-control signUpFormElement" id="lengthInput" placeholder="Length of loan">
               </div>
               <div class="form-group">
                 <label for="dateInput">Start Date</label>
-                <input name="credentials[start_date]" class="form-control signUpFormElement" id="dateInput" placeholder="Start Date">
+                <input name="loans[start_date]" type="integer" class="form-control signUpFormElement" id="dateInput" placeholder="Start Date">
               </div>
               <div class="form-group">
                 <label for="minimumInput">Minimum Payment</label>
-                <input name="credentials[minimum_monthly_payment]" class="form-control signUpFormElement" id="minimumInput" placeholder="Minimum Payment">
+                <input name="loans[minimum_monthly_payment]" type="integer" class="form-control signUpFormElement" id="minimumInput" placeholder="Minimum Payment">
               </div>
               <div class="form-group">
                 <label for="currentPayment">Current Payment</label>
-                <input name="credentials[current_monthly_payment]" class="form-control signUpFormElement" id="currentPayment" placeholder="Current Payment">
+                <input name="loans[current_monthly_payment]" type="integer" class="form-control signUpFormElement" id="currentPayment" placeholder="Current Payment">
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
             </form>
