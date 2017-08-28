@@ -12,14 +12,259 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
+      <h1>CRUD</h1>
+      <!-- sign up -->
+      <button id="signUpButton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUpModal">
+      Sign up
+      </button>
+      <!-- sign in -->
+      <button id="signInButton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signInModal">
+      Sign in
+      </button>
+      <!-- change password -->
+      <button id="changePasswordButton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#changePasswordModal">
+      Change password
+      </button>
+      <!-- sign out -->
+      <button id="logOutButton">Sign out</button>
+      <!-- update account -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#financeModal">
+        Add general finance info
+      </button>
+      <!-- new loan-->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loanModal">
+        Add a loan
+      </button>
+      <button id="getLoansButton">
+        Get Loans
+      </button>
+      <div id="board">
+      </div>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+<!-- Modals -->
+<!-- API Modals -->
+<div class="modal fade" id="financeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form id="fianceForm">
+              <div class="form-group">
+                <label for="first_name">First_Name</label>
+                <input name="credentials[first_name]" type="first_name" class="form-control signUpFormElement" id="first_nameInput" placeholder="first name">
+              </div>
+              <div class="form-group">
+                <label for="income">Income</label>
+                <input name="credentials[income]" type="income" class="form-control signUpFormElement" id="incomeInput" placeholder="income">
+              </div>
+              <div class="form-group">
+                <label for="rent">Rent</label>
+                <input name="credentials[rent]" type="rent" class="form-control" id="rentInput" placeholder="rent">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="loanModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form id="loanForm">
+              <div class="form-group">
+                <label for="loanNameInput">Loan name</label>
+                <input name="loan[name]" type="text" class="form-control signUpFormElement" id="loanNameInput" placeholder="Loan name">
+              </div>
+              <div class="form-group">
+                <label for="lenderInput">Name of lender</label>
+                <input name="loan[lender]" type="text" class="form-control signUpFormElement" id="lenderInput" placeholder="Name of lender">
+              </div>
+              <div class="form-group">
+                <label for="principalInput">Principal Amount</label>
+                <input name="loan[principal]" type="integer" accept=""class="form-control signUpFormElement" id="principalInput" placeholder="Principal Amount">
+              </div>
+              <div class="form-group">
+                <label for="interestInput">Interest Rate</label>
+                <input name="loan[interest_rate]" type="integer" class="form-control signUpFormElement" id="interestInput" placeholder="Interest Rate">
+              </div>
+              <div class="form-group">
+                <label for="lengthInput">Length of loan</label>
+                <input name="loan[loan_length]" type="integer" class="form-control signUpFormElement" id="lengthInput" placeholder="Length of loan">
+              </div>
+              <div class="form-group">
+                <label for="dateInput">Start Date</label>
+                <input name="loan[start_date]" type="integer" class="form-control signUpFormElement" id="dateInput" placeholder="Start Date">
+              </div>
+              <div class="form-group">
+                <label for="minimumInput">Minimum Payment</label>
+                <input name="loan[minimum_monthly_payment]" type="integer" class="form-control signUpFormElement" id="minimumInput" placeholder="Minimum Payment">
+              </div>
+              <div class="form-group">
+                <label for="currentPayment">Current Payment</label>
+                <input name="loan[current_monthly_payment]" type="integer" class="form-control signUpFormElement" id="currentPayment" placeholder="Current Payment">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="loanUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <h1 id="fileId"></h1>
+        <form id="loanUpdateForm">
+              <div class="form-group">
+                <label for="loanNameUpdateInput">Loan name</label>
+                <input name="loan[name]" type="text" class="form-control signUpFormElement" id="loanNameUpdateInput" placeholder="Loan name">
+              </div>
+              <div class="form-group">
+                <label for="lenderUpdateInput">Name of lender</label>
+                <input name="loan[lender]" type="text" class="form-control signUpFormElement" id="lenderUpdateInput" placeholder="Name of lender">
+              </div>
+              <div class="form-group">
+                <label for="principalUpdateInput">Principal Amount</label>
+                <input name="loan[principal]" type="integer" accept=""class="form-control signUpFormElement" id="principalUpdateInput" placeholder="Principal Amount">
+              </div>
+              <div class="form-group">
+                <label for="interestUpdateInput">Interest Rate</label>
+                <input name="loan[interest_rate]" type="integer" class="form-control signUpFormElement" id="interestUpdateInput" placeholder="Interest Rate">
+              </div>
+              <div class="form-group">
+                <label for="lengthUpdateInput">Length of loan</label>
+                <input name="loan[loan_length]" type="integer" class="form-control signUpFormElement" id="lengthUpdateInput" placeholder="Length of loan">
+              </div>
+              <div class="form-group">
+                <label for="dateUpdateInput">Start Date</label>
+                <input name="loan[start_date]" type="integer" class="form-control signUpFormElement" id="dateUpdateInput" placeholder="Start Date">
+              </div>
+              <div class="form-group">
+                <label for="minimumUpdateInput">Minimum Payment</label>
+                <input name="loan[minimum_monthly_payment]" type="integer" class="form-control signUpFormElement" id="minimumUpdateInput" placeholder="Minimum Payment">
+              </div>
+              <div class="form-group">
+                <label for="currentPaymentUpdateInput">Current Payment</label>
+                <input name="loan[current_monthly_payment]" type="integer" class="form-control signUpFormElement" id="currentPaymentUpdateInput" placeholder="Current Payment">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Auth modals -->
+<!-- Sign up -->
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form id="signUpForm">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input name="credentials[email]" type="email" class="form-control signUpFormElement" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input name="credentials[password]" type="password" class="form-control signUpFormElement" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Confirm Password</label>
+                <input name="credentials[password_confirmation]" type="password" class="form-control" id="confirmExampleInputPassword1" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Sign in -->
+<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form id="signInForm">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input name="credentials[email]" type="email" class="form-control signInFormElement" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input name="credentials[password]" type="password" class="form-control signInFormElement" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Change password -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <form id="changePasswordForm">
+              <div class="form-group">
+                <label for="exampleInputPassword1">Current Password</label>
+                <input name="passwords[old]" type="password" class="form-control changePasswordFormElement" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">New Password</label>
+                <input name="passwords[new]" type="password" class="form-control changePasswordFormElement" id="exampleInputPassword1" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
     </body>
 </html>
