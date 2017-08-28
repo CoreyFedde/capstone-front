@@ -35,6 +35,11 @@
       <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loanModal">
         Add a loan
       </button>
+      <button id="getLoansButton">
+        Get Loans
+      </button>
+      <div id="board">
+      </div>
 
 <!-- Modals -->
 <!-- API Modals -->
@@ -109,6 +114,58 @@
               <div class="form-group">
                 <label for="currentPayment">Current Payment</label>
                 <input name="loan[current_monthly_payment]" type="integer" class="form-control signUpFormElement" id="currentPayment" placeholder="Current Payment">
+              </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="loanUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        <h1 id="fileId"></h1>
+        <form id="loanUpdateForm">
+              <div class="form-group">
+                <label for="loanNameUpdateInput">Loan name</label>
+                <input name="loan[name]" type="text" class="form-control signUpFormElement" id="loanNameUpdateInput" placeholder="Loan name">
+              </div>
+              <div class="form-group">
+                <label for="lenderUpdateInput">Name of lender</label>
+                <input name="loan[lender]" type="text" class="form-control signUpFormElement" id="lenderUpdateInput" placeholder="Name of lender">
+              </div>
+              <div class="form-group">
+                <label for="principalUpdateInput">Principal Amount</label>
+                <input name="loan[principal]" type="integer" accept=""class="form-control signUpFormElement" id="principalUpdateInput" placeholder="Principal Amount">
+              </div>
+              <div class="form-group">
+                <label for="interestUpdateInput">Interest Rate</label>
+                <input name="loan[interest_rate]" type="integer" class="form-control signUpFormElement" id="interestUpdateInput" placeholder="Interest Rate">
+              </div>
+              <div class="form-group">
+                <label for="lengthUpdateInput">Length of loan</label>
+                <input name="loan[loan_length]" type="integer" class="form-control signUpFormElement" id="lengthUpdateInput" placeholder="Length of loan">
+              </div>
+              <div class="form-group">
+                <label for="dateUpdateInput">Start Date</label>
+                <input name="loan[start_date]" type="integer" class="form-control signUpFormElement" id="dateUpdateInput" placeholder="Start Date">
+              </div>
+              <div class="form-group">
+                <label for="minimumUpdateInput">Minimum Payment</label>
+                <input name="loan[minimum_monthly_payment]" type="integer" class="form-control signUpFormElement" id="minimumUpdateInput" placeholder="Minimum Payment">
+              </div>
+              <div class="form-group">
+                <label for="currentPaymentUpdateInput">Current Payment</label>
+                <input name="loan[current_monthly_payment]" type="integer" class="form-control signUpFormElement" id="currentPaymentUpdateInput" placeholder="Current Payment">
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
             </form>

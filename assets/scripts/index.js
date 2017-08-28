@@ -3,7 +3,7 @@
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
 const user = require('./auth/user.js')
-const ui = require('./auth/auth-ui.js')
+const authUi = require('./auth/auth-ui.js')
 const api = require('./api/api.js')
 
 $(() => {
@@ -15,6 +15,10 @@ $(() => {
   $('#changePasswordButton').hide()
   $('#logOutButton').hide()
   $('#loanForm').on('submit', api.onCreateLoan)
+  $('#getLoansButton').on('click', api.onGetLoans)
+  $('#board').on('click', '.remove-button', api.onDeleteLoan)
+  $('#loanUpdateForm').on('submit', api.onUpdateLoan)
+  $('#board').on('click', '.update-button', api.openUpdateLoanModal)
 })
 
 // use require with a reference to bundle the file and use it in this file

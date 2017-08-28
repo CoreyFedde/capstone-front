@@ -1,0 +1,22 @@
+{{#each loans as |loan|}}
+<!-- <div class="images col-sm-2" style="background-image:url({{loan.url}})"> -->
+  <!-- <div class="overlay"> -->
+  </div>
+  <h1>Name: {{loan.name}}</h1>
+  <button data-id="{{loan.id}}" class="remove-button btn btn-primary btn-sm" type="submit">delete</button>
+  <button class="update-button btn btn-primary btn-sm" data-toggle="modal" data-target="#loanUpdateModal" data-loanNameUpdateInput="{{loan.name}}" data-lenderUpdateInput="{{loan.lender}}" data-principalUpdateInput="{{loan.principal}}" data-interestUpdateInput="{{loan.interest_rate}}" data-lengthUpdateInput="{{loan.loan_length}}" data-dateUpdateInput="{{loan.start_date}}" data-minimumUpdateInput="{{loan.minimum_monthly_payment}}" data-currentPaymentUpdateInput="{{loan.current_monthly_payment}}" data-id="{{loan.id}}"
+ type="button">
+   edit
+  </button>
+  <ul>
+    <li>ID: {{loan.id}}</li>
+    <li>Lender: {{loan.lender}}</li>
+    <li>Length: {{loan.loan_length}}</li>
+    <li>Interset: {{loan.interest_rate}}
+    <li>Minimum monthly payments: {{loan.minimum_monthly_payment}}</li>
+    <li>Current monthly payments: {{loan.current_monthly_payment}}</li>
+    <li>Start date: {{loan.start_date}}</li>
+    <li>Principal: {{loan.principal}}</li>
+  </ul>
+</div>
+{{/each}}
