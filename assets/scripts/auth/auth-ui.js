@@ -1,5 +1,6 @@
 'use strict'
 const store = require('../store.js')
+const api = require('./../api/api.js')
 
 const onSignUpSuccess = (data) => {
   $('#signUpModal').modal('hide')
@@ -7,6 +8,7 @@ const onSignUpSuccess = (data) => {
   $('.form-control').attr('')
 }
 const onLogInSuccess = (data) => {
+  api.getDataArray()
   $('#signInModal').modal('hide')
   $('#signUpModal').modal('hide')
   $('#signInButton').hide()

@@ -55,10 +55,10 @@ const updateLoan = function (data, id) {
 let dataArray = []
 
 const getDataArray = function (event) {
-  // dataArray = [0]
-  // console.log("dataArray: ", dataArray)
+  // dataArray = []
   getLoans()
     .then(function (data) {
+      // console.log("dataArray: ", dataArray)
       // console.log("Access to dataArray?", dataArray)
       // console.log("data:", data)
       // console.log("fourth data:", data.loans[4])
@@ -68,7 +68,6 @@ const getDataArray = function (event) {
         // console.log("dataPoint:", dataPoint)
         dataArray.push(dataPoint)
       }
-      // console.log("final dataArray: ", dataArray)
     })
 }
 
