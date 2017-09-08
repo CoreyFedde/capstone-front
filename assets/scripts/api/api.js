@@ -52,6 +52,25 @@ const updateLoan = function (data, id) {
   })
 }
 
+let dataArray = []
+
+const getDataArray = function (event) {
+  // dataArray = []
+  getLoans()
+    .then(function (data) {
+      // console.log("dataArray: ", dataArray)
+      // console.log("Access to dataArray?", dataArray)
+      // console.log("data:", data)
+      // console.log("fourth data:", data.loans[4])
+      // console.log("fourth data principal", data.loans[4].principal)
+      for (var i = 0; i < data.loans.length; i++) {
+        let dataPoint = data.loans[i].principal
+        // console.log("dataPoint:", dataPoint)
+        dataArray.push(dataPoint)
+      }
+    })
+}
+
 const onGetLoans = function (event) {
   getLoans()
     .then(ui.onGetLoansSuccess)
@@ -124,6 +143,8 @@ const onUpdateLoan = function (event) {
 }
 
 module.exports = {
+  dataArray,
+  getDataArray,
   getLoans,
   getOneLoan,
   createLoan,
