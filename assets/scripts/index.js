@@ -11,23 +11,28 @@ const charts = require('./d3-charts.js')
 
 $(() => {
   setAPIOrigin(location, config)
+  // auth
   $('#signUpForm').on('submit', user.onSignUp)
   $('#signInForm').on('submit', user.onLogIn)
   $('#changePasswordForm').on('submit', user.onChangePassword)
   $('#logOutButton').on('click', user.onLogOut)
+  // Default view state
   $('#changePasswordButton').hide()
   $('#logOutButton').hide()
   $('.signed-in').hide()
+  $('.loans-view').show()
+  $('.loan-overview-view').hide()
+  $('.loan-interest-view').hide()
+  $('.loan-payment-slider-view').hide()
+  // CRUD
   $('#loanForm').on('submit', api.onCreateLoan)
   $('#getLoansButton').on('click', api.onGetLoans)
   // $('#graph').on('click', api.getDataArray)
-  $('#graph').on('click', charts.graph)
   $('#board').on('click', '.remove-button', api.onDeleteLoan)
   $('#loanUpdateForm').on('submit', api.onUpdateLoan)
   $('#board').on('click', '.update-button', api.openUpdateLoanModal)
-  $('#random').on('click', function () {
-    console.log("anything")
-  })
+  // Graphing
+  $('#graph').on('click', charts.graph)
 })
 
 // let dataArray = [10, 2]

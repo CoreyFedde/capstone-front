@@ -1,263 +1,290 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>DollarThoughts</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>DollarThoughts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body class="container-fluid">
-      <!-- Signed-out view -->
-      <div class="signed-out">
-        <li class="nav-item">
-          <a id="signInButton" type="button" class="nav-link" data-toggle="modal" data-target="#signInModal" href="#">Sign In</a>
-        </li>
-        <li class="nav-item">
-          <a id="signUpButton" type="button" class="nav-link" data-toggle="modal" data-target="#signUpModal" href="#">Sign Up</a>
-        </li>
-      </div>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <!-- Signed in view -->
-      <div class="signed-in">
-      <div class="row">
-        <div class="col-sm-1">
-          <ul class="nav flex-column">
-            <!-- <li class="nav-item">
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body class="container-fluid">
+  <!-- Signed-out view -->
+  <div class="signed-out">
+    <li class="nav-item">
+      <a id="signInButton" type="button" class="nav-link" data-toggle="modal" data-target="#signInModal" href="#">Sign In</a>
+    </li>
+    <li class="nav-item">
+      <a id="signUpButton" type="button" class="nav-link" data-toggle="modal" data-target="#signUpModal" href="#">Sign Up</a>
+    </li>
+  </div>
+
+  <!-- Signed in view -->
+  <div class="signed-in">
+    <div class="row">
+      <div class="col-sm-1">
+        <ul class="nav flex-column">
+          <!-- <li class="nav-item">
               <a id="signInButton" type="button" class="nav-link" data-toggle="modal" data-target="#signInModal" href="#">Sign In</a>
             </li>
             <li class="nav-item">
               <a id="signUpButton" type="button" class="nav-link" data-toggle="modal" data-target="#signUpModal" href="#">Sign Up</a>
             </li> -->
-            <li class="nav-item">
-              <a button id="changePasswordButton" type="button" class="nav-link" data-toggle="modal" data-target="#changePasswordModal" href="#">Change Password</a>
-            </li>
-            <li class="nav-item">
-              <a id="logOutButton" class="nav-link" href="#">Sign Out</a>
-            </li>
-            <li class="nav-item">
-              <a type="button" class="nav-link" data-toggle="modal" data-target="#loanModal" href="#">Add a loan</a>
-            </li>
-            <li class="nav-item">
-              <a id="getLoansButton" class="nav-link disabled" href="#">Get Loans</a>
-            </li>
-            <li class="nav-item">
-              <a id="graph" class="nav-link disabled" href="#">Graphs</a>
-            </li>
-          </ul>
-        </div>
-        <div>
+          <li class="nav-item">
+            <a button id="changePasswordButton" type="button" class="nav-link" data-toggle="modal" data-target="#changePasswordModal" href="#">Change Password</a>
+          </li>
+          <li class="nav-item">
+            <a id="logOutButton" class="nav-link" href="#">Sign Out</a>
+          </li>
+          <li class="nav-item">
+            <a type="button" class="nav-link" data-toggle="modal" data-target="#loanModal" href="#">Add a loan</a>
+          </li>
+          <li class="nav-item">
+            <a id="getLoansButton" class="nav-link disabled" href="#">Get Loans</a>
+          </li>
+          <li class="nav-item">
+            <a id="graph" class="nav-link disabled" href="#">Graphs</a>
+          </li>
+        </ul>
+      </div>
+      <div class="loans-view">
         <div id="board" class="col-md-5 col-xs-offset-1">
-          Anything
+          Loans view
         </div>
         <div id="visualizations" class="col-md-5">
-          Visualization
+          Loans view
         </div>
       </div>
+      <div class="loan-overview-view">
+        <div id="board" class="col-md-5 col-xs-offset-1">
+          loan-overview-view
+        </div>
+        <div id="visualizations" class="col-md-5">
+          loan-overview-view
+        </div>
+      </div>
+      <div class="loan-interest-view">
+        <div id="board" class="col-md-5 col-xs-offset-1">
+          loan-interest-view
+        </div>
+        <div id="visualizations" class="col-md-5">
+          loan-interest-view
+        </div>
+      </div>
+      <div class="loan-payment-slider-view">
+        <div id="board" class="col-md-5 col-xs-offset-1">
+          loan-payent-slider-view
+        </div>
+        <div id="visualizations" class="col-md-5">
+          loan-payment-slider-view
+        </div>
       </div>
     </div>
+  </div>
 
-<!-- Modals -->
-<!-- API Modals -->
-<div class="modal fade" id="loanModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <form id="loanForm">
-              <div class="form-group">
-                <label for="loanNameInput">Loan name</label>
-                <input name="loan[name]" type="text" class="form-control signUpFormElement" id="loanNameInput" placeholder="Loan name">
-              </div>
-              <div class="form-group">
-                <label for="lenderInput">Name of lender</label>
-                <input name="loan[lender]" type="text" class="form-control signUpFormElement" id="lenderInput" placeholder="Name of lender">
-              </div>
-              <div class="form-group">
-                <label for="principalInput">Principal Amount</label>
-                <input name="loan[principal]" type="number" accept=""class="form-control signUpFormElement" id="principalInput" placeholder="Principal Amount">
-              </div>
-              <div class="form-group">
-                <label for="interestInput">Interest Rate</label>
-                <input name="loan[interest_rate]" type="number" class="form-control signUpFormElement" id="interestInput" placeholder="Interest Rate">
-              </div>
-              <div class="form-group">
-                <label for="lengthInput">Length of loan</label>
-                <input name="loan[loan_length]" type="number" class="form-control signUpFormElement" id="lengthInput" placeholder="Length of loan">
-              </div>
-              <div class="form-group">
-                <label for="dateInput">Start Date</label>
-                <input name="loan[start_date]" type="number" class="form-control signUpFormElement" id="dateInput" placeholder="Start Date">
-              </div>
-              <div class="form-group">
-                <label for="currentPayment">Current Payment</label>
-                <input name="loan[current_monthly_payment]" type="number" class="form-control signUpFormElement" id="currentPayment" placeholder="Current Payment">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="loanUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <h1 id="fileId"></h1>
-        <form id="loanUpdateForm">
-              <div class="form-group">
-                <label for="loanNameUpdateInput">Loan name</label>
-                <input name="loan[name]" type="text" class="form-control signUpFormElement" id="loanNameUpdateInput" placeholder="Loan name">
-              </div>
-              <div class="form-group">
-                <label for="lenderUpdateInput">Name of lender</label>
-                <input name="loan[lender]" type="text" class="form-control signUpFormElement" id="lenderUpdateInput" placeholder="Name of lender">
-              </div>
-              <div class="form-group">
-                <label for="principalUpdateInput">Principal Amount</label>
-                <input name="loan[principal]" type="number" accept=""class="form-control signUpFormElement" id="principalUpdateInput" placeholder="Principal Amount">
-              </div>
-              <div class="form-group">
-                <label for="interestUpdateInput">Interest Rate</label>
-                <input name="loan[interest_rate]" type="number" class="form-control signUpFormElement" id="interestUpdateInput" placeholder="Interest Rate">
-              </div>
-              <div class="form-group">
-                <label for="lengthUpdateInput">Length of loan</label>
-                <input name="loan[loan_length]" type="number" class="form-control signUpFormElement" id="lengthUpdateInput" placeholder="Length of loan">
-              </div>
-              <div class="form-group">
-                <label for="dateUpdateInput">Start Date</label>
-                <input name="loan[start_date]" type="number" class="form-control signUpFormElement" id="dateUpdateInput" placeholder="Start Date">
-              </div>
-              <div class="form-group">
-                <label for="minimumUpdateInput">Minimum Payment</label>
-                <input name="loan[minimum_monthly_payment]" type="number" class="form-control signUpFormElement" id="minimumUpdateInput" placeholder="Minimum Payment">
-              </div>
-              <div class="form-group">
-                <label for="currentPaymentUpdateInput">Current Payment</label>
-                <input name="loan[current_monthly_payment]" type="number" class="form-control signUpFormElement" id="currentPaymentUpdateInput" placeholder="Current Payment">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+  <!-- Modals -->
+  <!-- API Modals -->
+  <div class="modal fade" id="loanModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <form id="loanForm">
+            <div class="form-group">
+              <label for="loanNameInput">Loan name</label>
+              <input name="loan[name]" type="text" class="form-control signUpFormElement" id="loanNameInput" placeholder="Loan name">
+            </div>
+            <div class="form-group">
+              <label for="lenderInput">Name of lender</label>
+              <input name="loan[lender]" type="text" class="form-control signUpFormElement" id="lenderInput" placeholder="Name of lender">
+            </div>
+            <div class="form-group">
+              <label for="principalInput">Principal Amount</label>
+              <input name="loan[principal]" type="number" accept="" class="form-control signUpFormElement" id="principalInput" placeholder="Principal Amount">
+            </div>
+            <div class="form-group">
+              <label for="interestInput">Interest Rate</label>
+              <input name="loan[interest_rate]" type="number" class="form-control signUpFormElement" id="interestInput" placeholder="Interest Rate">
+            </div>
+            <div class="form-group">
+              <label for="lengthInput">Length of loan</label>
+              <input name="loan[loan_length]" type="number" class="form-control signUpFormElement" id="lengthInput" placeholder="Length of loan">
+            </div>
+            <div class="form-group">
+              <label for="dateInput">Start Date</label>
+              <input name="loan[start_date]" type="number" class="form-control signUpFormElement" id="dateInput" placeholder="Start Date">
+            </div>
+            <div class="form-group">
+              <label for="currentPayment">Current Payment</label>
+              <input name="loan[current_monthly_payment]" type="number" class="form-control signUpFormElement" id="currentPayment" placeholder="Current Payment">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- Auth modals -->
-<!-- Sign up -->
-<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <form id="signUpForm">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input name="credentials[email]" type="email" class="form-control signUpFormElement" id="exampleInputEmail1" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input name="credentials[password]" type="password" class="form-control signUpFormElement" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <label for="first_name">First_Name</label>
-                <input name="credentials[first_name]" type="text" class="form-control signUpFormElement" id="first_nameInput" placeholder="first name">
-              </div>
-              <div class="form-group">
-                <label for="income">Income</label>
-                <input name="credentials[income]" type="number" class="form-control signUpFormElement" id="incomeInput" placeholder="income">
-              </div>
-              <div class="form-group">
-                <label for="rent">Monthly Rent</label>
-                <input name="credentials[rent]" type="number" class="form-control" id="rentInput" placeholder="rent">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Sign in -->
-<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <form id="signInForm">
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input name="credentials[email]" type="email" class="form-control signInFormElement" id="exampleInputEmail1" placeholder="Email">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input name="credentials[password]" type="password" class="form-control signInFormElement" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+  <div class="modal fade" id="loanUpdateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <h1 id="fileId"></h1>
+          <form id="loanUpdateForm">
+            <div class="form-group">
+              <label for="loanNameUpdateInput">Loan name</label>
+              <input name="loan[name]" type="text" class="form-control signUpFormElement" id="loanNameUpdateInput" placeholder="Loan name">
+            </div>
+            <div class="form-group">
+              <label for="lenderUpdateInput">Name of lender</label>
+              <input name="loan[lender]" type="text" class="form-control signUpFormElement" id="lenderUpdateInput" placeholder="Name of lender">
+            </div>
+            <div class="form-group">
+              <label for="principalUpdateInput">Principal Amount</label>
+              <input name="loan[principal]" type="number" accept="" class="form-control signUpFormElement" id="principalUpdateInput" placeholder="Principal Amount">
+            </div>
+            <div class="form-group">
+              <label for="interestUpdateInput">Interest Rate</label>
+              <input name="loan[interest_rate]" type="number" class="form-control signUpFormElement" id="interestUpdateInput" placeholder="Interest Rate">
+            </div>
+            <div class="form-group">
+              <label for="lengthUpdateInput">Length of loan</label>
+              <input name="loan[loan_length]" type="number" class="form-control signUpFormElement" id="lengthUpdateInput" placeholder="Length of loan">
+            </div>
+            <div class="form-group">
+              <label for="dateUpdateInput">Start Date</label>
+              <input name="loan[start_date]" type="number" class="form-control signUpFormElement" id="dateUpdateInput" placeholder="Start Date">
+            </div>
+            <div class="form-group">
+              <label for="minimumUpdateInput">Minimum Payment</label>
+              <input name="loan[minimum_monthly_payment]" type="number" class="form-control signUpFormElement" id="minimumUpdateInput" placeholder="Minimum Payment">
+            </div>
+            <div class="form-group">
+              <label for="currentPaymentUpdateInput">Current Payment</label>
+              <input name="loan[current_monthly_payment]" type="number" class="form-control signUpFormElement" id="currentPaymentUpdateInput" placeholder="Current Payment">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<!-- Change password -->
-<div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        <form id="changePasswordForm">
-              <div class="form-group">
-                <label for="exampleInputPassword1">Current Password</label>
-                <input name="passwords[old]" type="password" class="form-control changePasswordFormElement" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <div class="form-group">
-                <label for="exampleInputPassword1">New Password</label>
-                <input name="passwords[new]" type="password" class="form-control changePasswordFormElement" id="exampleInputPassword1" placeholder="Password">
-              </div>
-              <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+  <!-- Auth modals -->
+  <!-- Sign up -->
+  <div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <form id="signUpForm">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input name="credentials[email]" type="email" class="form-control signUpFormElement" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input name="credentials[password]" type="password" class="form-control signUpFormElement" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="first_name">First_Name</label>
+              <input name="credentials[first_name]" type="text" class="form-control signUpFormElement" id="first_nameInput" placeholder="first name">
+            </div>
+            <div class="form-group">
+              <label for="income">Income</label>
+              <input name="credentials[income]" type="number" class="form-control signUpFormElement" id="incomeInput" placeholder="income">
+            </div>
+            <div class="form-group">
+              <label for="rent">Monthly Rent</label>
+              <input name="credentials[rent]" type="number" class="form-control" id="rentInput" placeholder="rent">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-    </body>
+  <!-- Sign in -->
+  <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <form id="signInForm">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input name="credentials[email]" type="email" class="form-control signInFormElement" id="exampleInputEmail1" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input name="credentials[password]" type="password" class="form-control signInFormElement" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Change password -->
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <form id="changePasswordForm">
+            <div class="form-group">
+              <label for="exampleInputPassword1">Current Password</label>
+              <input name="passwords[old]" type="password" class="form-control changePasswordFormElement" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1">New Password</label>
+              <input name="passwords[new]" type="password" class="form-control changePasswordFormElement" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
