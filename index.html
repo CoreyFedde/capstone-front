@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>DollarThoughts</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,34 +12,55 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>CRUD</h1>
-      <!-- sign up -->
-      <button id="signUpButton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signUpModal">
-      Sign up
-      </button>
-      <!-- sign in -->
-      <button id="signInButton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#signInModal">
-      Sign in
-      </button>
-      <!-- change password -->
-      <button id="changePasswordButton" type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#changePasswordModal">
-      Change password
-      </button>
-      <!-- sign out -->
-      <button id="logOutButton">Sign out</button>
-      <!-- update account -->
-      <!-- new loan-->
-      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loanModal">
-        Add a loan
-      </button>
-      <button id="getLoansButton">
-        Get Loans
-      </button>
-      <button id="graph">
-        Get Loans
-      </button>
-      <div id="board">
+      <!-- Signed-out view -->
+      <div class="signed-out">
+        <li class="nav-item">
+          <a id="signInButton" type="button" class="nav-link" data-toggle="modal" data-target="#signInModal" href="#">Sign In</a>
+        </li>
+        <li class="nav-item">
+          <a id="signUpButton" type="button" class="nav-link" data-toggle="modal" data-target="#signUpModal" href="#">Sign Up</a>
+        </li>
       </div>
+
+      <!-- Signed in view -->
+      <div class="signed-in">
+      <div class="row">
+        <div class="col-sm-1">
+          <ul class="nav flex-column">
+            <!-- <li class="nav-item">
+              <a id="signInButton" type="button" class="nav-link" data-toggle="modal" data-target="#signInModal" href="#">Sign In</a>
+            </li>
+            <li class="nav-item">
+              <a id="signUpButton" type="button" class="nav-link" data-toggle="modal" data-target="#signUpModal" href="#">Sign Up</a>
+            </li> -->
+            <li class="nav-item">
+              <a button id="changePasswordButton" type="button" class="nav-link" data-toggle="modal" data-target="#changePasswordModal" href="#">Change Password</a>
+            </li>
+            <!-- <li class="nav-item"> -->
+              <button id="#random">test</button>
+              <!-- <a id="#logOutButton" class="nav-link" href="#">Sign Out</a> -->
+            <!-- </li> -->
+            <li class="nav-item">
+              <a type="button" class="nav-link" data-toggle="modal" data-target="#loanModal" href="#">Add a loan</a>
+            </li>
+            <li class="nav-item">
+              <a id="getLoansButton" class="nav-link disabled" href="#">Get Loans</a>
+            </li>
+            <li class="nav-item">
+              <a id="graph" class="nav-link disabled" href="#">Graphs</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+        <div id="board" class="col-md-5 col-xs-offset-1">
+          Anything
+        </div>
+        <div id="visualizations" class="col-md-5">
+          Visualization
+        </div>
+      </div>
+      </div>
+    </div>
 
 <!-- Modals -->
 <!-- API Modals -->

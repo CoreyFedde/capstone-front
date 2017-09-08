@@ -9,6 +9,8 @@ const onSignUpSuccess = (data) => {
 }
 const onLogInSuccess = (data) => {
   api.getDataArray()
+  $('.signed-in').show()
+  $('.signed-out').hide()
   $('#signInModal').modal('hide')
   $('#signUpModal').modal('hide')
   $('#signInButton').hide()
