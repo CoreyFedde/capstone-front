@@ -15,9 +15,6 @@ $(() => {
   $('#signInForm').on('submit', user.onLogIn)
   $('#changePasswordForm').on('submit', user.onChangePassword)
   $('#logOutButton').on('click', user.onLogOut)
-  $('#random').on('click', function () {
-    console.log("anything")
-  })
   $('#changePasswordButton').hide()
   $('#logOutButton').hide()
   $('.signed-in').hide()
@@ -28,6 +25,9 @@ $(() => {
   $('#board').on('click', '.remove-button', api.onDeleteLoan)
   $('#loanUpdateForm').on('submit', api.onUpdateLoan)
   $('#board').on('click', '.update-button', api.openUpdateLoanModal)
+  $('#random').on('click', function () {
+    console.log("anything")
+  })
 })
 
 // let dataArray = [10, 2]

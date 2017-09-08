@@ -36,6 +36,8 @@ const onChangePasswordSuccess = (data) => {
 }
 const onLogOutSuccess = (data) => {
   clear()
+  $('.signed-in').hide()
+  $('.signed-out').show()
   $('.form-control').val('')
   $('.form-control').attr('placeholder', '')
   $('#signInButton').show()
