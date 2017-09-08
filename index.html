@@ -13,7 +13,11 @@
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
 
-<body class="container-fluid">
+<body>
+  <div class="main-header">
+    main header
+  </div>
+  <div class="container-fluid">
   <!-- Signed-out view -->
   <div class="signed-out">
     <li class="nav-item">
@@ -52,39 +56,53 @@
           </li>
         </ul>
       </div>
-      <div class="loans-view">
-        <div id="board" class="col-md-5 col-xs-offset-1">
-          Loans view
+      <div class="views">
+        <div class="loans-view">
+          <div class="col-lg-11 view-header">
+            Loans
+          </div>
+          <div id="board" class="col-md-5">
+            Loans view
+          </div>
+          <div id="visualizations" class="col-md-5">
+            Loans view
+          </div>
         </div>
-        <div id="visualizations" class="col-md-5">
-          Loans view
+        <div class="loan-overview-view">
+          <div class="col-lg-11 view-header">
+            Loan Overview
+          </div>
+          <div id="board" class="col-md-5 col-xs-offset-1">
+            loan-overview-view
+          </div>
+          <div id="visualizations" class="col-md-5">
+            loan-overview-view
+          </div>
         </div>
-      </div>
-      <div class="loan-overview-view">
-        <div id="board" class="col-md-5 col-xs-offset-1">
-          loan-overview-view
+        <div class="loan-interest-view">
+          <div class="col-lg-11 view-header">
+            header
+          </div>
+          <div id="board" class="col-md-5 col-xs-offset-1">
+            Interest vs Principcal
+          </div>
+          <div id="visualizations" class="col-md-5">
+            loan-interest-view
+          </div>
         </div>
-        <div id="visualizations" class="col-md-5">
-          loan-overview-view
-        </div>
-      </div>
-      <div class="loan-interest-view">
-        <div id="board" class="col-md-5 col-xs-offset-1">
-          loan-interest-view
-        </div>
-        <div id="visualizations" class="col-md-5">
-          loan-interest-view
-        </div>
-      </div>
-      <div class="loan-payment-slider-view">
-        <div id="board" class="col-md-5 col-xs-offset-1">
-          loan-payent-slider-view
-        </div>
-        <div id="visualizations" class="col-md-5">
-          loan-payment-slider-view
-        </div>
+        <div class="loan-payment-slider-view">
+          <div class="col-lg-11 view-header">
+            Payment Slider
+          </div>
+          <div id="board" class="col-md-5 col-xs-offset-1">
+            loan-payent-slider-view
+          </div>
+          <div id="visualizations" class="col-md-5">
+            loan-payment-slider-view
+          </div>
       </div>
     </div>
+</div>
   </div>
 
   <!-- Modals -->
