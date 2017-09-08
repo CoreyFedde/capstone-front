@@ -7,6 +7,7 @@ const authUi = require('./auth/auth-ui.js')
 const api = require('./api/api.js')
 const d3 = require("d3")
 const charts = require('./d3-charts.js')
+const views = require('./views/views.js')
 // let dataArray = api.dataArray
 
 $(() => {
@@ -24,6 +25,11 @@ $(() => {
   $('.loan-overview-view').hide()
   $('.loan-interest-view').hide()
   $('.loan-payment-slider-view').hide()
+  // View buttons
+  $('#homeButton').on('click', views.loansView)
+  $('#reviewButton').on('click', views.reviewView)
+  $('#interestButton').on('click', views.interestView)
+  $('#paymentButton').on('click', views.paymentView)
   // CRUD
   $('#loanForm').on('submit', api.onCreateLoan)
   $('#getLoansButton').on('click', api.onGetLoans)
