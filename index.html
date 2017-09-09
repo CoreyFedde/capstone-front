@@ -14,8 +14,17 @@
 </head>
 
 <body>
+  <!-- Signed-out view -->
+  <div class="cover">
+  <div class="signed-out text-vertical-center">
+    <img class="money-bag" src="https://cdn.pixabay.com/photo/2013/07/12/14/07/bag-147782_1280.png">
+    <h1>DollarThoughts</h1>
+    <button class="btn btn-success signed-out-button" id="signUpButton" type="button"  data-toggle="modal" data-target="#signUpModal">Sign Up</button>
+    <button class="btn btn-success signed-out-button" id="signInButton" type="button"  data-toggle="modal" data-target="#signInModal">Sign In</button>
+  </div>
+</div>
   <div class="nav-side-menu signed-in">
-    <div class="brand">DollarThoughts</div>
+    <div class="brand">DollarThoughts <img class="money-bag2" src="https://cdn.pixabay.com/photo/2013/07/12/14/07/bag-147782_1280.png"></div>
     <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
     <div class="menu-list">
         <ul id="menu-content" class="menu-content collapse out">
@@ -51,15 +60,6 @@
     main header
   </div> -->
   <div id="main" class="content">
-  <!-- Signed-out view -->
-  <div class="signed-out">
-    <li class="nav-item">
-      <a id="signInButton" type="button" class="nav-link" data-toggle="modal" data-target="#signInModal" href="#">Sign In</a>
-    </li>
-    <li class="nav-item">
-      <a id="signUpButton" type="button" class="nav-link" data-toggle="modal" data-target="#signUpModal" href="#">Sign Up</a>
-    </li>
-  </div>
 
   <!-- Signed in view -->
   <div class="signed-in">
@@ -67,7 +67,7 @@
       <div class="views">
         <div class="loans-view">
           <div class="col-lg-12 view-header">
-            Loans
+            <h1>Loans</h1>
           </div>
           <div id="board" class="col-md-5">
             <li class="nav-item">
@@ -87,7 +87,7 @@
         </div>
         <div class="loan-overview-view">
           <div class="col-lg-12 view-header">
-            Loan Overview
+            <h1>Loan Overview</h1>
           </div>
           <div id="board" class="col-md-5">
             loan-overview-view
@@ -98,7 +98,7 @@
         </div>
         <div class="loan-interest-view">
           <div class="col-lg-12 view-header">
-            header
+            <h1>Interest vs Principal</h1>
           </div>
           <div id="board" class="col-md-5">
             Interest vs Principcal
@@ -109,7 +109,7 @@
         </div>
         <div class="loan-payment-slider-view">
           <div class="col-lg-12 view-header">
-            Payment Slider
+            <h1>Payment Slider</h1>
           </div>
           <div id="board" class="col-md-5">
             loan-payent-slider-view
