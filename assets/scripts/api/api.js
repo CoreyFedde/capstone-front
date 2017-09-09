@@ -76,18 +76,14 @@ const onGetLoans = function (event) {
     .then(ui.onGetLoansSuccess)
 }
 
-const onGetOneLoan = function (event) {
-  getOneLoan(data)
-    .then(function (data) {
-      console.log('on get one loan worked')
-    })
+const onGetOneLoan = function (data) {
+  getOneLoan(this.value)
+    .then(ui.onGetLoanSuccess)
 }
 
 const onCreateLoan = function (event) {
-  console.log('this', this)
   event.preventDefault()
   const data = getFormFields(this)
-  console.log('data', data)
   createLoan(data)
     .then(function (data) {
       console.log('on create loan worked')
@@ -95,10 +91,8 @@ const onCreateLoan = function (event) {
 }
 
 const onDeleteLoan = function (data) {
-  console.log(this)
   deleteLoan(this.dataset.id)
     .then(() => {
-      console.log('on delete loan worked')
     })
 }
 
