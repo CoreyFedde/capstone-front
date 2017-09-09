@@ -47,6 +47,13 @@ $(() => {
   $('#paymentBoard').on('change', '.loan-select', api.onGetOneLoan)
   $('#paymentBoard').on('click', '.remove-button', api.onDeleteLoan)
   $('#paymentBoard').on('click', '.update-button', api.openUpdateLoanModal)
+  $('#board').on('click', '.loan-head', function () {
+    let targetEl = $(this).parent().children('ul')
+    console.log(this)
+    console.log(targetEl)
+    $(this).parent().children('ul').toggle()
+    // $(this).children().toggle()
+  })
   // Graphing
   $('#graph').on('click', charts.barChart)
 })
