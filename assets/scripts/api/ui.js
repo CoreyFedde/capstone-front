@@ -7,6 +7,7 @@ const onGetLoansSuccess = function (data) {
   const loansHtml = loansTemplate({ loans: data.loans })
   $('#board').append(loansHtml)
   $('#board').show()
+  $('.loan-info').hide()
 }
 
 module.exports = {

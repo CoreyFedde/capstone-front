@@ -54,6 +54,29 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   color: green;
 }
 
+.loan-card {
+  border: thin solid black;
+  margin: 10px 0;
+}
+.update-button {
+  margin-right: 80px;
+  padding: 19px 20px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.remove-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 19px 20px;
+  // padding: 15px 20px;
+}
+// .loan-card h1 {
+//   display: inline-block;
+//   margin-right: 20px;
+// }
 
 
 .money-bag {
